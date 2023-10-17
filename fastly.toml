@@ -1,12 +1,12 @@
 # This file describes a Fastly Compute@Edge package. To learn more visit:
 # https://developer.fastly.com/reference/fastly-toml/
 
-authors = ["bbenvenuti@fastly.com"]
+authors = ["haubry@fastly.com"]
 description = "proxy for rt stats without a key"
 language = "javascript"
 manifest_version = 3
 name = "reverse-rt-proxy"
-service_id = "kubIkc9LfJ6YgRxnKv3eD3"
+service_id = "PogpyJQoRBcFtddVBgaGK6"
 
 [local_server]
 
@@ -17,7 +17,7 @@ service_id = "kubIkc9LfJ6YgRxnKv3eD3"
 
   [local_server.secret_stores]
 
-    tokens = [{ key = "bradbenvenuti", file = "token.txt" }]
+    tokens = [{ key = "haubry", file = "token.txt" }]
 
 [scripts]
   build = "npm run build"
