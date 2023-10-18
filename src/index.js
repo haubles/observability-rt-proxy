@@ -3,7 +3,7 @@ import { CacheOverride } from "fastly:cache-override";
 import { SecretStore } from "fastly:secret-store";
 
 const backendName = "rt";
-const serviceId = "7aoz1CBbiHDltvDsuAmhnM";
+const serviceId = "myOKWFV3A3TGNBOXkU5kk2";
 
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
 
@@ -19,7 +19,7 @@ async function handleRequest(event) {
   
   // Get api token from secret store
   const secrets = new SecretStore('tokens')
-  const key = await secrets.get('bradbenvenuti');
+  const key = await secrets.get('haubles');
 
   // Create a cache override.
   let cacheOverride = new CacheOverride("override", { ttl: 60 });
