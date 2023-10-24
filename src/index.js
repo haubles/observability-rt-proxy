@@ -13,8 +13,17 @@ async function handleRequest(event) {
   
   // Parse the URL from client request.
   const url = new URL(req.url);
-  const datetime = url.searchParams.get("ts");
-  const newUrl = `https://rt.fastly.com/v1/channel/${serviceId}/ts/${datetime || 0}`;
+  const urlPathMatch = url.pathname.match(/\/ts\/(\d+)\/?$/);
+  const qsMatch = url.searchParams.get("ts");
+  let datetime;
+  if (Number.parseInt(qsMatch)) {
+    datetime = url.searchParams.get("ts");
+  } else if (urlPathMatch) {
+    datetime = urlPathMatch[1];
+  } else {
+    datetime = 0;
+  }
+  const newUrl = `https://rt.fastly.com/v1/channel/${serviceId}/ts/${datetime}`;
   console.log(newUrl);
   
   // Get api token from secret store
